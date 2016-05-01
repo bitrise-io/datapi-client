@@ -1,0 +1,13 @@
+inherit_from: .rubocop_todo.yml
+
+Metrics/LineLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - bin/**/*
+    - Gemfile
+    - Rakefile
+    - datapi-client.gemspec
