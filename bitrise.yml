@@ -19,3 +19,14 @@ workflows:
             bundle install --with test
             bundle exec rspec
             bundle exec rubocop
+  gem-release:
+    description: |-
+      Bump the version number, commit & push it,
+      then run this workflow.
+    steps:
+    - script:
+        inputs:
+        - content: |-
+            #!/bin/bash
+            set -ex
+            rake release

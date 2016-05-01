@@ -1,8 +1,6 @@
 # Datapi::Client
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/datapi/client`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Client for [DatAPI](https://github.com/bitrise-tools/datapi).
 
 ## Installation
 
@@ -22,7 +20,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Store data:
+
+```
+datapi_store = Datapi::Client::StoreData.new(datapi_root_url, datapi_read_write_api_token)
+sample_data = { 'label' => 'sample_data', 'value' => true }
+datapi_store.send(sample_data, 'unit-test')
+```
+
+Get data:
+
+```
+datapi_get = Datapi::Client::GetData.new(datapi_root_url, datapi_readonly_api_token)
+datapi_get.get_data_by_typeid('unit-test')
+```
 
 ## Development
 
