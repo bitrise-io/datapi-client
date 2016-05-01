@@ -12,4 +12,5 @@ workflows:
         - content: |-
             #!/bin/bash
             set -ex
+            bundle install --with test
             bundle exec rspec
