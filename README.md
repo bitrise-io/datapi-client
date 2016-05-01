@@ -7,7 +7,7 @@ Client for [DatAPI](https://github.com/bitrise-tools/datapi).
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'datapi-client'
+gem 'datapi-client', '~> 0.1.0'
 ```
 
 And then execute:
