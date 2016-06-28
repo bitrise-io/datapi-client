@@ -17,9 +17,11 @@ module Datapi
         uri = URI.join(@datapi_root_url, '/data/', typeid)
         req = Net::HTTP::Post.new(
           uri.path,
-          { 'Content-Type' => 'application/json',
+          {
+            'Content-Type' => 'application/json',
             'Authorization' => "Token token=#{@datapi_read_write_api_token}"
-          })
+          }
+        )
         req.body = { data: data, generated_at: generated_at }.to_json
 
         res = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme.eql?('https')) do |http|
@@ -41,9 +43,11 @@ module Datapi
         uri = URI.join(@datapi_root_url, '/data/', typeid)
         req = Net::HTTP::Get.new(
           uri.path,
-          { 'Content-Type' => 'application/json',
+          {
+            'Content-Type' => 'application/json',
             'Authorization' => "Token token=#{@datapi_readonly_api_token}"
-          })
+          }
+        )
 
         res = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme.eql?('https')) do |http|
           http.request(req)
