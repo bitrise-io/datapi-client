@@ -11,3 +11,4 @@ AllCops:
     - Gemfile
     - Rakefile
     - datapi-client.gemspec
+    - vendor/bundle/**/*
