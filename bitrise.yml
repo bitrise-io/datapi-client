@@ -16,6 +16,11 @@ workflows:
         - content: |-
             #!/bin/bash
             set -ex
+            # tmp bundler fix for "Gem::Ext::BuildError: ERROR: Failed to build gem native extension."
+            # "can't modify frozen String"
+            # see: https://github.com/bundler/bundler/issues/5357#issuecomment-274742137
+            sudo gem update --system
+            #
             bundle install --with test
             bundle exec rspec
             bundle exec rubocop
